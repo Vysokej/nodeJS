@@ -25,3 +25,33 @@ exerciseBtns.forEach(btn => {
         btn.classList.add("active");
     })
 })
+
+// form data handling
+
+const form = document.querySelector("form")
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    fetch("/submit", {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+})
+
+function loadCalories(data) {
+    for(let i = 0; i < data.length; i++) {
+        const div = document.createElement("div");
+        div.classList.add("caloriesDisplay", "column");
+        div.innerHTML = `
+            <p class="px18 text light">
+        `
+    }
+}
