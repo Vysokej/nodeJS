@@ -1,0 +1,167 @@
+:root {
+    --bg: #EDEEF0;
+    --lighter-blue: #BCD9D7;
+    --light-blue: #7BA9A9;
+    --dark-blue: #3A595C;
+    --black: #192E2F;
+    --green: #425F4B;
+}
+body, html, body * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    transition: .2s;
+}
+body, html {
+    background-color: var(--bg);
+}
+.row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+.text {
+    font-family: "Inter", sans-serif;
+}
+.green {
+    color: var(--green);
+}
+p, h1, input {
+    color: #fff;
+}
+.light {
+    font-weight: 400;
+}
+.medium {
+    font-weight: 500;
+}
+.bold {
+    font-weight: 600;
+}
+.px14 {
+    font-size: 14px;
+}
+.px18 {
+    font-size: 18px;
+}
+.px24 {
+    font-size: 24px;
+}
+img {
+    object-fit: cover;
+}
+
+/* main index styling */
+main {
+    width: 100vw;
+    height: auto;
+    margin: auto;
+    margin-top: 48px;
+}
+.userInput {
+    background-color: var(--light-blue);
+    width: 50%;
+    padding: 48px;
+    position: relative;
+}
+form {
+    width: 437px;
+    height: auto;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+}
+form span.row {
+    width: 100%;
+    gap: 24px;
+    justify-content: flex-start;
+}
+.genderBtn {
+    width: 50%;
+    height: 74px;
+    background-color: var(--dark-blue);
+    justify-content: center;
+    align-items: center;
+}
+.genderBtn:hover {
+    background-color: var(--black);
+    cursor: pointer;
+}
+input[type="text"] {
+    width: 33%;
+    border-radius: 10px;
+    border: 2px solid var(--dark-blue);
+    padding: 8px;
+    background-color: transparent;
+    outline: none;
+}
+input[type="text"]::placeholder {
+    color: var(--dark-blue);
+}
+input[type="text"]:hover, input[type="text"]:active, input[type="text"]:focus {
+    cursor: pointer;
+    border-color: var(--black);
+    color: var(--black);
+}
+input[type="text"]:hover::placeholder, input[type="text"]:active::placeholder, input[type="text"]:focus::placeholder {
+    color: var(--black);
+}
+h1:nth-of-type(2) {
+    margin-top: 24px;
+}
+/*  */
+.radio input[type="radio"] {
+    display: none;
+}
+.radio {
+    position: relative;
+}
+.dot {
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--dark-blue);
+    border-radius: 50%;
+}
+.greenLine {
+    height: 2px;
+    width: 33%;
+    background-color: var(--dark-blue);
+}
+#exerciseSpan {
+    justify-content: center;
+    gap: 0px;
+}
+.radio p {
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    text-align: center;
+}
+#mediumTag {
+    left: -23px;
+}
+.explanation {
+    margin-top: 16px;
+    gap: 4px;
+}
+input[type="submit"] {
+    background-color: var(--dark-blue);
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    align-self: flex-end;
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: var(--black);
+}
+#arrow {
+    transform: rotate(-90deg);
+    position: relative;
+}
+
+/* output styling */

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie calculator</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="row">
+        <section class="userInput">
+            <form action="/submit" method="POST" class="column">
+                <h1 class="px24 text medium">Body Parameters</h1>
+                <span class="row">
+                    <label for="male" class="genderBtn column">
+                        <input type="radio" name="gender" id="male" value="Male" hidden required>
+                        <p class="px18 text medium">Male</p>
+                    </label>
+                    
+                    <label for="female" class="genderBtn column">
+                        <input type="radio" name="gender" id="female" value="Female" hidden required>
+                        <p class="px18 text medium">Female</p>
+                    </label>
+                </span>
+                <span class="row">
+                    <input type="text" class="px14 light text" name="Age" placeholder="Age..." required>
+                    <input type="text" class="px14 light text" name="Weight" placeholder="Weight..." required>
+                    <input type="text" class="px14 light text" name="Height" placeholder="Height..." required>
+                </span>
+                <h1 class="px24 text medium">Exercise</h1>
+                <span class="row" id="exerciseSpan">
+                    <!---->
+                    <label for="low" class="column radio">
+                        <div class="dot"></div>
+                        <p class="px18 text medium green">Low</p>
+                        <input type="radio" name="exercise" id="low" value="low" required>
+                    </label>
+                    
+                <!----><div class="greenLine"></div>
+
+                    <label for="little" class="column radio">
+                        <div class="dot"></div>
+                        <p class="px18 text medium green">Little</p>
+                        <input type="radio" name="exercise" id="little" value="little" required>
+                    </label>
+
+                <!----><div class="greenLine"></div>
+
+                    <label for="medium" class="column radio">
+                        <div class="dot"></div>
+                        <p class="px18 text medium green" id="mediumTag">Medium</p>
+                        <input type="radio" name="exercise" id="medium" value="medium" required>
+                    </label>
+
+                <!----><div class="greenLine"></div>
+
+                    <label for="high" class="column radio">
+                        <div class="dot"></div>
+                        <p class="px18 text medium green">High</p>
+                        <input type="radio" name="exercise" id="high" value="high" required>
+                    </label>
+                    <!---->
+                </span>
+                <div class="column explanation">
+                    <p class="px14 light text">Low: <strong>Little</strong> to no exercise </p>
+                    <p class="px14 light text">Light: <strong>Small</strong> 1-3 exercises a week </p>
+                    <p class="px14 light text">Medium: <strong>Moderate</strong> exercise, 4-5 times a week </p>
+                    <p class="px14 light text">High: <strong>Intense</strong> exercise, 6-7 times a week </p>
+                </div>
+                <input type="submit" value="Calculate" class="px18 medium text">
+            </form>
+        </section>
+        <!-- start of new section -->
+        <section class="output">
+            <img src="assets/triangle.svg" alt="green triangle" id="arrow">
+        </section>
+    </main>
+
+    <!---->
+    <script src="js/index.js"></script>
+</body>
+</html>
