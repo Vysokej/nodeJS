@@ -11,7 +11,7 @@
 </head>
 <body>
     <main class="row">
-        <section class="userInput">
+        <section class="userInput active" id="userInput">
             <form action="/submit" method="POST" class="column">
                 <h1 class="px24 text medium">Body Parameters</h1>
                 <span class="row">
@@ -74,8 +74,14 @@
             </form>
         </section>
         <!-- start of new section -->
-        <section class="output">
+        <section id="output" class="column active">
             <img src="assets/triangle.svg" alt="green triangle" id="arrow">
+            <div class="textarea column">
+                <header class="column">
+                    <h1 class="px24 medium text">Results</h1>
+                    <p class="px18 light text">Daily calories necessary to reach your goals</p>
+                </header>
+            </div>
         </section>
     </main>
 

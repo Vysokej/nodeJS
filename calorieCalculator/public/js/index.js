@@ -39,7 +39,7 @@ form.addEventListener("submit", (event) => {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
+        loadCalories(data);
     })
     .catch((error) => {
         console.log(error)
@@ -47,11 +47,18 @@ form.addEventListener("submit", (event) => {
 })
 
 function loadCalories(data) {
+    const container = document.getElementById("output");
+    const userInput = document.getElementById("userInput")
+
     for(let i = 0; i < data.length; i++) {
         const div = document.createElement("div");
         div.classList.add("caloriesDisplay", "column");
         div.innerHTML = `
-            <p class="px18 text light">
+            <p class="px18 text light">${data[i].text}</p>
+            <p class="px32 text bold">${data[i].calories}</p>
         `
+        container.appendChild(div);   
     }
+    container.classList.remove("active");
+    userInput.classList.remove("active");
 }

@@ -34,7 +34,7 @@ p, h1, input {
     color: #fff;
 }
 .light {
-    font-weight: 400;
+    font-weight: 300;
 }
 .medium {
     font-weight: 500;
@@ -50,6 +50,9 @@ p, h1, input {
 }
 .px24 {
     font-size: 24px;
+}
+.px32 {
+    font-size: 32px;
 }
 img {
     object-fit: cover;
@@ -68,6 +71,10 @@ section {
 }
 .userInput {
     background-color: var(--light-blue);
+    transition: .5s ease-out;
+}
+.userInput.active {
+    width: 80%;
 }
 form {
     width: 437px;
@@ -178,12 +185,36 @@ input[type="submit"]:hover {
 }
 
 /* output styling */
-.output {
+#output {
     background-color: var(--dark-blue);
+    gap: 16px;
+    transition: .5s ease-out;
+}
+#output.active {
+    width: 20%;
+}
+#output.active .textarea {
+    display: none;
 }
 #arrow {
     position: absolute;
-    left: -100px;
+    left: -130px;
     top: 50%;
-    transform: translateY(-50%) rotate(-90deg) scale(.7);
+    transform: translateY(-50%) rotate(-90deg) scale(.3);
+}
+.textarea {
+    margin-left: 24px;
+    
+}
+header {
+    gap: 8px;
+}
+.caloriesDisplay {
+    border-left: 2px solid #fff;
+    padding: 16px;
+    gap: 8px;
+    margin-left: 24px;
+}
+.caloriesDisplay:first {
+    margin-top: 24px;
 }
