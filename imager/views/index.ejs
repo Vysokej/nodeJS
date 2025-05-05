@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imager</title>
+    <link rel="stylesheet" href="indexAssets/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="row">
+        <header class="column">
+            <h1 class="text px60 bold">Upload an Image</h1>
+            <p class="px18 text light">And use later with our API</p>
+        </header>
+        <form action="/submit" method="POST" class="row" enctype="multipart/form-data">
+            <label for="image">
+                <input type="file" accept=".jpg, .jpeg, .png, .svg" name="image" id="image" hidden required>
+                <div class="box image">
+                    <img src="indexAssets/upload.svg" alt="upload image icon" class="iconLarge">
+                </div>
+            </label>
+            <label for="name" class="box name row">
+                <input type="text" name="imageName" id="name" class="px18 medium text" placeholder="Name the image..." required>
+                <img src="indexAssets/edit.svg" alt="name image icon" class="iconMedium">
+            </label>
+            <label for="submit" class="box row submit">
+                <input type="submit" id="submit" hidden>
+                <span class="row">
+                    <p class="text px18 medium">Upload</p>
+                    <img src="indexAssets/finish.svg" alt="upload image" class="iconMedium">
+                </span>
+            </label>
+        </form>
+    </main>
+</body>
+</html>

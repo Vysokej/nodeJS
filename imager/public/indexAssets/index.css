@@ -1,0 +1,143 @@
+:root {
+    --bg: #FBFBFB;
+    --text: #000000;
+    --purple: #C5BAFF;
+    --light-blue: #E8F9FF;
+    --blue: #C4D9FF;
+}
+body, html, body * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    transition: .2s;
+}
+body, html {
+    background-color: var(--bg);
+}
+.row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+.text {
+    font-family: "Inter", sans-serif;
+}
+.light {
+    font-weight: 300;
+}
+.medium {
+    font-weight: 500;
+}
+.bold {
+    font-weight: 600;
+}
+.px14 {
+    font-size: 14px;
+}
+.px18 {
+    font-size: 18px;
+}
+.px24 {
+    font-size: 24px;
+}
+.px32 {
+    font-size: 32px;
+}
+img {
+    object-fit: cover;
+}
+.iconSmall {
+    width: 18px;
+    height: 18px
+}
+.iconMedium {
+    width: 24px;
+    height: 24px
+}
+.iconLarge {
+    width: 32px;
+    height: 32px;
+}
+
+/* main styling */
+main {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+}
+form {
+    position: relative;
+    width: 380px;
+}
+.box {
+    transition: .25s ease-out;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+/* image upload */
+.box.image {
+    background-color: var(--purple);
+    width: 291px;
+    height: 291px;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+}
+.box.image:hover {
+    background-color: hsl(250, 100%, 80%);
+    cursor: pointer;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+}
+.box.image:hover > img.iconLarge {
+    width: 33px;
+    height: 33px;
+}
+
+/* give image name upload */
+.box.name {
+    background-color: var(--light-blue);
+    padding: 16px;
+    position: absolute;
+    top: 40px;
+    right: -100px;
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.5);
+}
+.box.name:hover, .box.name:has(input:focus) {
+    background-color: hsl(196, 100%, 89%);
+    cursor: text;
+}
+.box.name:hover > img {
+    opacity: 1;
+}
+.box.name input {
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 170px;
+}
+.box.name > img {
+    opacity: .6;
+}
+/* submit */
+.box.submit {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
+    background-color: var(--blue);
+    position: absolute;
+    right: -110px;
+    bottom: 40px;
+    padding: 16px;
+}
+.submit .row {
+    gap: 8px;
+}
+.box.submit:hover {
+    cursor: pointer;
+    background-color: hsl(219, 100%, 82%);
+}
