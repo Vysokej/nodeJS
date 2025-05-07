@@ -1,0 +1,98 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+/* chats area <aside/> */
+aside {
+    width: calc(30% + 48px);
+    border-right: 1px solid var(--dark-black);
+    height: 100%;
+    padding: 48px;
+    padding-right: 24px;
+}
+#userNameSpan {
+    justify-content: space-between;
+    width: 100%;
+}
+#createChat:hover {
+    cursor: pointer;
+    --tint-send: 55;
+    background-color: rgb(var(--tint-send), var(--tint-send), var(--tint-send));
+}
+#chats {
+    margin-top: 48px;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+.chat {
+    gap: 16px;
+    padding: 16px 16px;
+}
+.chat:hover {
+    cursor: pointer;
+    --tint: 33;
+    background-color: rgb(var(--tint), var(--tint), var(--tint));
+}
+.chat > div.column {
+    justify-content: space-between;
+    height: 45px;
+}
+.chat .dot {
+    height: 5px;
+    width: 5px;
+    background-color: transparent;
+    opacity: .4;
+    border-radius: 50%;
+    border: 1px solid var(--text);
+}
+.chat span.row {
+    gap: 4px;
+}
+.pfp {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: var(--light-grey);
+}
+
+/* messaging area */
+main {
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+form#messageBox {
+    background-color: var(--dark-grey);
+    width: 90%;
+    position: absolute;
+    bottom: 48px;
+    left: 5%;
+    right: 5%;
+    justify-content: space-between;
+}
+form#messageBox:hover > #submitLabel{
+    opacity: 1;
+}
+#messageBox input[type="text"]{
+    width: 80%;
+    padding: 8px 32px;
+    color: var(--text);
+    background-color: transparent;
+    outline: transparent;
+    border: none;
+}
+#submitLabel {
+    padding: 8px 32px;
+    justify-content: center;
+    align-items: center;
+    opacity: .6;
+    transition: .2s ease-out;
+}
+#submitLabel:hover {
+    cursor: pointer;
+    --tint-send: 55;
+    background-color: rgb(var(--tint-send), var(--tint-send), var(--tint-send));
+}

@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 48px;
+}
+#googleBtn {
+    border: 1px solid var(--dark-black);
+    gap: 18px;
+    padding: 16px 64px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+#googleBtn:hover {
+    cursor: pointer;
+    --tint: 33;
+    background-color: rgb(var(--tint), var(--tint), var(--tint));
+}

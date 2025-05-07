@@ -12,6 +12,7 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
+// saveage of images
 app.post("/submit", (req, res) => {
 
     // presetting variables like bb, fields, and extension
@@ -52,9 +53,11 @@ app.post("/submit", (req, res) => {
             res.json("success!")
         })
     })
-
     req.pipe(bb);
 })
+
+const apiRouter = require("./routes/api")
+app.use("/api", apiRouter);
 
 app.listen(3000, () => {
     console.log("http://localhost:3000")

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Roomify</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/chat.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    </head>
+<body class="row">
+    <aside class="column">
+        <span class="row" id="userNameSpan">
+            <p class="text px18 medium">_.Username</p>
+            <img src="assets/add.svg" alt="create new chat icon" class="iconMedium" id="createChat">
+        </span>
+        <div id="chats">
+            <div class="chat row">
+                <img src="" alt="profile picture" class="pfp" onerror="this.onerror=null; this.src='assets/default.webp';">
+                <div class="column">
+                    <p class="name px18 medium text">Sender_123</p>
+                    <span class="row">
+                        <p class="px18 light text">Of course!</p>
+                        <div class="dot"></div>
+                        <p class="px18 light text">2h</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="column">
+        <form action="" id="messageBox" class="row">
+            <input type="text" name="message" id="messageInput" placeholder="Message...">
+            <label for="submit" class="column" id="submitLabel">
+                <img src="assets/send.svg" alt="" class="iconMedium">
+                <input type="submit" hidden id="submit" name="submit">
+            </label>
+        </form>
+    </main>
+</body>
+</html>
