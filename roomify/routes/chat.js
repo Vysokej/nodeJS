@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const busboy = require("busboy");
-const path = require("path");
-const fs = require("fs");
+const session = require("express-session")
 
 router.get("/", (req,res) => {
     res.render("chat")
