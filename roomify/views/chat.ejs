@@ -12,10 +12,20 @@
     </head>
 <body class="row">
     <aside class="column">
-        <span class="row" id="userNameSpan">
-            <p class="text px18 medium"><%= user.username %></p>
-            <img src="assets/add.svg" alt="create new chat icon" class="iconMedium" id="createChat">
-        </span>
+        <div class="column">
+            <span class="row" id="userNameSpan">
+                <p class="text px18 medium"><%= user.username %></p>
+                <img src="assets/add.svg" alt="create new chat icon" class="iconMedium" id="createChat">
+            </span>
+            <form action="" class="search row hidden" id="createChatsForm">
+                <input type="text" name="search" id="searchInput" autocomplete="off" class="text px14 medium" placeholder="Search for users...">
+                <label for="searchSubmit" id="searchSubmitLabel">
+                    <input type="submit" value="" hidden id="searchSubmit">
+                    <img src="assets/share.svg" alt="" class="iconMedium">
+                </label>
+            </form>
+        </div>
+        
         <div id="chats">
             <div class="chat row">
                 <img src="" alt="profile picture" class="pfp" onerror="this.onerror=null; this.src='assets/default.webp';">
@@ -32,12 +42,14 @@
     </aside>
     <main class="column">
         <form action="" id="messageBox" class="row">
-            <input type="text" name="message" id="messageInput" placeholder="Message...">
+            <input type="text" name="message" id="messageInput" placeholder="Message..." autocomplete="off">
             <label for="submit" class="column" id="submitLabel">
                 <img src="assets/send.svg" alt="" class="iconMedium">
                 <input type="submit" hidden id="submit" name="submit">
             </label>
         </form>
     </main>
+
+    <script src="js/chat.js"></script>
 </body>
 </html>

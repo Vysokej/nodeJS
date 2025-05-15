@@ -13,10 +13,11 @@ aside {
     padding-right: 24px;
 }
 #userNameSpan {
+    z-index: 2;
     justify-content: space-between;
     width: 100%;
 }
-#createChat:hover {
+#createChat:hover, #searchSubmitLabel:hover {
     cursor: pointer;
     --tint-send: 55;
     background-color: rgb(var(--tint-send), var(--tint-send), var(--tint-send));
@@ -76,7 +77,7 @@ form#messageBox {
 form#messageBox:hover > #submitLabel{
     opacity: 1;
 }
-#messageBox input[type="text"]{
+#messageBox input[type="text"], .search input[type="text"] {
     width: 80%;
     padding: 8px 32px;
     color: var(--text);
@@ -95,4 +96,41 @@ form#messageBox:hover > #submitLabel{
     cursor: pointer;
     --tint-send: 55;
     background-color: rgb(var(--tint-send), var(--tint-send), var(--tint-send));
+}
+
+/* add people search bar */
+.search {
+    z-index: 1;
+    margin-top: 18px;
+    width: 100%;
+    justify-content: space-between;
+    background-color: var(--dark-grey);
+    animation: searchPopUp .3s ease-out;
+}
+@keyframes searchPopUp {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+#createChatsForm.hidden {
+    display: none;
+}
+#searchSubmitLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 32px;
+}
+#searchSubmitLabel .iconMedium {
+    transform: scale(.95);
+    padding: 2px;
+    opacity: .6;
+}
+.search:hover #searchSubmitLabel .iconMedium {
+    opacity: 1;
 }
