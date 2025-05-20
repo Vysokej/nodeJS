@@ -46,12 +46,13 @@ router.post("/createChat", upload.none(), async (req, res) => {
             const matchingId = results.filter(chat => chat.userId === searchedUserId)
             if(matchingId.length === 0) {
                 // no matching id's, so we create a new chat
-                sqlQuery = `INSERT INTO chats (userId) VALUES (?)`;
+                let chatUID = userId,searchedUserId;
+                sqlQuery = `INSERT INTO chats (chatId, userId) VALUES (?, ?)`;
 
                 let newChatId
                 const allUserIds = [userId, searchedUserId]
                 for(let i = 0; i <= 1; i++) {
-                    const [results] = await db.query(sqlQuery, [allUserIds[i]])
+                    const [results] = await db.query(sqlQuery, [chatUID, allUserIds[i]])
                     newChatId = results.insertId
                 }
                 res.json({state: "success", message: newChatId})
@@ -74,18 +75,20 @@ router.post("/createChat", upload.none(), async (req, res) => {
 })
 
 // giving user all of their chats for frontend rendering
-app.get("/getChats", async (req, res) => {
+router.get("/getChats", async (req, res) => {
     try {
         const userId = req.session.user.userId
         let sqlQuery = `
             SELECT DISTINCT u.*, c2.idChats
             FROM chats c1
-            JOIN chats c2 ON c1.idChats = c2.idChats
+            JOIN chats c2 ON c1.chatId = c2.chatId
             JOIN users u ON u.googleId = c2.userId
             WHERE c1.userId = ? AND c2.userId != ?
 
         `
         let [results] = await db.query(sqlQuery, [userId, userId])
+        
+        res.json(results);
     }
     catch(error) {
         console.log(error)

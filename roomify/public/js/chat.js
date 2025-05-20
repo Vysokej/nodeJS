@@ -36,8 +36,33 @@ fetch("/getChats", {
 })
 .then((response) => response.json())
 .then((data) => {
-    console.log(data)
+    renderChats(data);
 })
 .catch((error) => {
     console.log(error)
 })
+
+function renderChats(data) {
+    const container = document.getElementById("chats")
+    console.log(data[0].username)
+
+    for(let i = 0; i < data.length; i++) {
+        let chatBoxHTML = `
+            <img src="${data[i].imageURL}" alt="profile picture" class="pfp" onerror="this.onerror=null; this.src='assets/default.webp';">
+            <div class="column">
+                <p class="name px18 medium text">${data[i].username}</p>
+                <span class="row">
+                    <p class="px18 light text">last message (WIP)</p>
+                    <div class="dot"></div>
+                    <p class="px18 light text">when was last message sent (WIP)</p>
+                </span>
+            </div>
+        `
+        const chat = document.createElement("div");
+        chat.classList.add("chat", "row")
+        chat.dataset.chatId = data[i].idChats
+        chat.innerHTML = chatBoxHTML;
+
+        container.append(chat);
+    }
+}
