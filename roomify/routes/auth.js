@@ -41,7 +41,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
   // getting that data in the users session
   req.session.user = {
     username: userName,
-    userId: userId,
+    userId: userId, // google id
     userPfp: userPfp,
     userUID: userUID,
     isLogged: true

@@ -17,7 +17,7 @@
                 <p class="text px18 medium"><%= user.username %></p>
                 <img src="assets/add.svg" alt="create new chat icon" class="iconMedium" id="createChat">
             </span>
-            <form action="" class="search row hidden" id="createChatsForm">
+            <form action="" class="search row hidden" id="createChatsForm" enctype="multipart/form-data">
                 <input type="text" name="search" id="searchInput" autocomplete="off" class="text px14 medium" placeholder="Search for users...">
                 <label for="searchSubmit" id="searchSubmitLabel">
                     <input type="submit" value="" hidden id="searchSubmit">
@@ -41,7 +41,7 @@
         </div>
     </aside>
     <main class="column">
-        <form action="" id="messageBox" class="row">
+        <form action="" id="messageBox" class="row" enctype="multipart/form-data">
             <input type="text" name="message" id="messageInput" placeholder="Message..." autocomplete="off">
             <label for="submit" class="column" id="submitLabel">
                 <img src="assets/send.svg" alt="" class="iconMedium">
