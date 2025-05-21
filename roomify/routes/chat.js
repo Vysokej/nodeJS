@@ -25,6 +25,7 @@ router.post("/createChat", upload.none(), async (req, res) => {
     try {
         const userId = req.session.user.userId;
         const searchedUser = req.body.search;
+        let searchedUserId;
         // checking whether searched user exists
         let sqlQuery = `SELECT * FROM users WHERE username LIKE CONCAT('%', ?, '%')`
         let [results] = await db.query(sqlQuery, [searchedUser])
@@ -33,7 +34,7 @@ router.post("/createChat", upload.none(), async (req, res) => {
             res.json({state: "fail", message: "user doesn't exist"})
         }
         else {
-            const searchedUserId = results[0].googleId
+            searchedUserId = results[0].googleId
             // user exists, now we check if the user and searchedUser already have a chat
             sqlQuery = `SELECT * FROM chats
                         WHERE idChats IN (
@@ -46,7 +47,7 @@ router.post("/createChat", upload.none(), async (req, res) => {
             const matchingId = results.filter(chat => chat.userId === searchedUserId)
             if(matchingId.length === 0) {
                 // no matching id's, so we create a new chat
-                let chatUID = userId,searchedUserId;
+                let chatUID = `${userId}${searchedUserId}`;
                 sqlQuery = `INSERT INTO chats (chatId, userId) VALUES (?, ?)`;
 
                 let newChatId
@@ -59,7 +60,7 @@ router.post("/createChat", upload.none(), async (req, res) => {
             }
             else {
                 // chat exists, we return the chat id for frontend to open
-                // !!! IN FUTURE, WE WILL RETURN THE WHOLE MESSAGE SO ALL REQUESTS ARE REST
+                // !!! IN FUTURE, WE WILL RETURN THE WHOLE MESSAGE SO ALL REQUESTS ARE REST API
                 // !!! AND NOT USER EXPERIENCE HEAVY (LESS REQUESTS FROM USER)
                 // !!! basically, we just fetch the messages here
                 // !!! we should create a global function for getting messages, will make
@@ -71,7 +72,6 @@ router.post("/createChat", upload.none(), async (req, res) => {
     catch(error) {
         console.log(error)
     }
-    
 })
 
 // giving user all of their chats for frontend rendering
@@ -87,12 +87,26 @@ router.get("/getChats", async (req, res) => {
 
         `
         let [results] = await db.query(sqlQuery, [userId, userId])
-        
         res.json(results);
     }
     catch(error) {
         console.log(error)
     }
 })
+
+// live user search
+router.get("/getUsers", async (req, res) => {
+    try {
+        const search = req.query.search;
+
+        let sqlQuery = `SELECT username, imageURL FROM users WHERE username LIKE CONCAT('%', ?, '%') AND username != ? LIMIT 5`;
+        const [results] = await db.query(sqlQuery, [search, req.session.user.username])
+        res.json(results);
+    }
+    catch(error) {
+        console.log(error)
+    }
+})
+
 // exporting this router for server inclusion
 module.exports = router;

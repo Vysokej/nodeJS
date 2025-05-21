@@ -117,7 +117,7 @@ form#messageBox:hover > #submitLabel{
         transform: translateY(0px);
     }
 }
-#createChatsForm.hidden {
+#userSearchWholeDiv.hidden {
     display: none;
 }
 #searchSubmitLabel {
@@ -133,4 +133,31 @@ form#messageBox:hover > #submitLabel{
 }
 .search:hover #searchSubmitLabel .iconMedium {
     opacity: 1;
+}
+
+/* live user search */
+#userSearchWholeDiv {
+    position: relative;
+}
+#liveSearchResults {
+    position: absolute;
+    top: 75px;
+    backdrop-filter: blur(2px);
+    gap: 16px;
+    width: 100%;
+}
+#liveSearchResults:has(.searchResult:hover) .searchResult:not(:hover) {
+  opacity: .6;
+}
+.searchResult {
+    gap: 8px;
+    padding: 8px 32px;
+}
+.searchResult:hover {
+    cursor: pointer;
+    padding: 10px 35px;
+}
+#liveSearchResults .pfp {
+    width: 35px;
+    height: 35px;
 }
